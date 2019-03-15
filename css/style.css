@@ -134,8 +134,8 @@ header a:hover{
 /* Showcase */
 
 #showcase {
-  min-height: 800px;
-  background:url('../img/church.jpg') no-repeat center;
+  max-height: 500px;
+  background:url('../img/monitorX.jpg') no-repeat center;
   background-size: cover;
   text-align: center;
   color: #ffffff;
@@ -143,7 +143,7 @@ header a:hover{
 
 #showcase h1{
   text-align: right;
-  margin-top: 750px;
+  margin-top: 200px;
   font-size: 55px;
   margin-bottom: 10px;
   opacity: 0.7;
