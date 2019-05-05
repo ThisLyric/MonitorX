@@ -9,21 +9,19 @@
     </head>
     <body>
 <?php
-require('connection.php');
+require('../connection.php');
 if (isset($_REQUEST['username'])){
-  $firstName = stripslashes($_REQUEST['firstName']);
-	$firstName = mysqli_real_escape_string($conn,$firstName);
-  $lastName = stripslashes($_REQUEST['lastName']);
-	$lastName = mysqli_real_escape_string($conn,$lastName);
+  $name = stripslashes($_REQUEST['name']);
+	$name = mysqli_real_escape_string($conn,$name);
 	$username = stripslashes($_REQUEST['username']);
 	$username = mysqli_real_escape_string($conn,$username);
 	$email = stripslashes($_REQUEST['email']);
 	$email = mysqli_real_escape_string($conn,$email);
 	$password = stripslashes($_REQUEST['password']);
 	$password = mysqli_real_escape_string($conn,$password);
-	$signUpDate = date("Y-m-d H:i:s");
-    $query = "INSERT into `accounts` (username, firstName, lastName, email, password, signUpDate)
-                VALUES ('$username', '$firstName', '$lastName', '$email', '".md5($password)."', '$signUpDate')";
+	$trn_date = date("Y-m-d H:i:s");
+    $query = "INSERT into `admin` (name, username, password, email, trn_date)
+                VALUES ('$name','$username', '".md5($password)."', '$email', '$trn_date')";
     $result = mysqli_query($conn,$query);
     if($result){
         echo "<div class='content' style='margin-top:40%;'>
@@ -37,9 +35,7 @@ if (isset($_REQUEST['username'])){
 <form name="registration" action="" method="post">
     <input type="text" name="username" placeholder="Username" class="textfield" required autofocus />
     <p></p>
-    <input type="text" name="firstName" placeholder="First Name" class="textfield" required />
-    <p></p>
-    <input type="text" name="lastName" placeholder="Last Name" class="textfield" required />
+    <input type="text" name="name" placeholder="Full Name" class="textfield" required />
     <p></p>
     <input type="email" name="email" placeholder="Email" class="textfield" required />
     <p></p>
